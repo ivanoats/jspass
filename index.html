@@ -1,11 +1,11 @@
 <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
 <script>
-  var password = prompt("What is the password?");
-  var encrypted = CryptoJS.AES.encrypt("Message", password);
+  var password = prompt("What is the password?")
+  var encrypted = CryptoJS.AES.encrypt("Message", password)
 
-  console.log(password);
-  console.log(encrypted);
-  var decrypted = CryptoJS.AES.decrypt(encrypted, password);
-  alert(decrypted);
+  console.log(password)
+  console.log(encrypted)
+  var decrypted = CryptoJS.AES.decrypt(encrypted, password)
+  alert(decrypted.toString(CryptoJS.enc.Utf8))
 </script>
 
