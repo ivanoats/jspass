@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Decode your URL here</title>
+  </head>
+  <body>
+    <h1>Message Decoder</h1>
+    <p>This URL contains a securly encrypted method.</p>
+    <p>Are you ready to enter your pass phrase?</p>
+    <button onclick="decoder.read()">Decrypt</button>
+
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+
+    <script>
+      var decoder = {
+        getCypher: function() {
+          this.url = window.location.pathname.replace("/decode.html/", "")
+          this.cypher = decodeURI(this.url)
+          console.log("Encrypted message: " + this.cypher)
+        },
+        getPassword: function() {
+          this.password = prompt("What pass phrase will protect this message?")
+        },
+        read: function() {
+          this.getCypher()
+          this.getPassword()
+          alert(CryptoJS.AES.decrypt(this.cypher, this.password).toString(CryptoJS.enc.Utf8))
+        }
+      }
+    </script>
+  </body>
+</html>
